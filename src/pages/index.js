@@ -1,21 +1,66 @@
 import React from "react"
-import { Link } from "gatsby"
+
+import { StaticQuery, graphql } from 'gatsby';
 
 import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import SEO    from "../components/seo"
+import Tweet  from '../components/tweet';
 
-const IndexPage = () => (
-  <Layout>
+import { Timeline, TimelineItem }  from 'vertical-timeline-component-for-react';
+
+import rehypeReact from "rehype-react";
+
+const render = new rehypeReact({
+  createElement: React.createElement,
+  components: {
+    'tweet': Tweet
+  }
+}).Compiler;
+
+const dataQuery = graphql`
+  query {
+    allMarkdownRemark(sort: {fields: frontmatter___date, order: ASC}) {
+      edges {
+        node {
+          id
+          frontmatter {
+            date
+            path
+            title
+            subtitle
+          }
+          htmlAst
+        }
+      }
+    }
+  }
+`;
+
+
+const IndexPage = function({ data }) {
+  const { allMarkdownRemark } = data;
+  const { edges }             = allMarkdownRemark;
+
+  return (
+    <Layout>
     <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
+    <Timeline lineColor={'#ddd'}>
+      {edges.map(({ node }) => {
+        return (
+          <TimelineItem key={node.id} dateText={node.frontmatter.title} style={{ color: '#e86971' }}>
+            {render(node.htmlAst)}
+          </TimelineItem>
+        );
+      })}
+    </Timeline>
   </Layout>
-)
+  );
+}
 
-export default IndexPage
+
+export default props => (
+  <StaticQuery
+    query={dataQuery}
+    render={data => <IndexPage data={data} {...props} />}
+  />
+);
