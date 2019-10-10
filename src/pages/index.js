@@ -47,7 +47,11 @@ const IndexPage = function({ data }) {
     <Timeline lineColor={'#ddd'}>
       {edges.map(({ node }) => {
         return (
-          <TimelineItem key={node.id} dateText={node.frontmatter.title} style={{ color: '#e86971' }}>
+          <TimelineItem
+            key={node.id}
+            dateText={node.frontmatter.title}
+            dateInnerStyle={{ background: '#B71C1C', color: '#FFF' }}
+            style={{ color: '#B71C1C' }}>
             {render(node.htmlAst)}
           </TimelineItem>
         );
