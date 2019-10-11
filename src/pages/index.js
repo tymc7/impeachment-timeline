@@ -1,4 +1,5 @@
-import React from "react"
+import React        from "react"
+import { useState } from 'react';
 
 import { StaticQuery, graphql } from 'gatsby';
 
@@ -19,7 +20,7 @@ const render = new rehypeReact({
 
 const dataQuery = graphql`
   query {
-    allMarkdownRemark(sort: {fields: frontmatter___date, order: ASC}) {
+    allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}) {
       edges {
         node {
           id
@@ -40,12 +41,27 @@ const dataQuery = graphql`
 const IndexPage = function({ data }) {
   const { allMarkdownRemark } = data;
   const { edges }             = allMarkdownRemark;
+  const [ dates, setDates ]   = useState(edges);
+
+  function handleToggle() {
+    const reversed = dates.reverse();
+    setDates([ ...reversed ]);
+  }
 
   return (
     <Layout>
     <SEO title="Home" />
+    <button type="button" onClick={handleToggle}>Toggle Order</button>
+    <DateTimeline dates={dates}/>
+  </Layout>
+  );
+}
+
+
+function DateTimeline({ dates }) {
+  return (
     <Timeline lineColor={'#ddd'}>
-      {edges.map(({ node }) => {
+      {dates.map(({ node }) => {
         return (
           <TimelineItem
             key={node.id}
@@ -57,7 +73,6 @@ const IndexPage = function({ data }) {
         );
       })}
     </Timeline>
-  </Layout>
   );
 }
 
