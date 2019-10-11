@@ -65,6 +65,7 @@ function DateTimeline({ dates }) {
         return (
           <TimelineItem
             key={node.id}
+            id={node.frontmatter.date}
             dateText={node.frontmatter.title}
             dateInnerStyle={{ background: '#B71C1C', color: '#FFF' }}
             style={{ color: '#B71C1C' }}>
