@@ -7,15 +7,18 @@ export default function Header({ siteTitle }) {
     <header
       style={{
         background: `#B71C1C`,
-        marginBottom: `1.45rem`,
+        marginBottom: `1.45rem`
       }}>
       <div
         style={{
           margin: `0 auto`,
           maxWidth: 960,
-          padding: `1.45rem 1.0875rem`,
+          padding: `1rem`,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
         }}>
-        <h1 style={{ margin: 0 }}>
+        <h1 style={{ margin: 0, fontSize: '1rem' }}>
           <Link
             to="/"
             style={{
@@ -25,6 +28,9 @@ export default function Header({ siteTitle }) {
             {siteTitle}
           </Link>
         </h1>
+        <Link to="/about" style={{ color: `white`, textDecoration: `none`, fontFamily: 'sans-serif' }}>
+          About
+        </Link>
       </div>
     </header>
   );
