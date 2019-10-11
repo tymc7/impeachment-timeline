@@ -22,6 +22,7 @@ button:hover {
 
 footer {
   text-align: center;
+  margin-top: 20px;
 }
 
 p:last-child {
@@ -29,6 +30,7 @@ p:last-child {
 }
 
 
+.card,
 .body-container {
   padding: 0.6em;
   background: #fff;

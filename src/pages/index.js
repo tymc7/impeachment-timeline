@@ -51,7 +51,8 @@ const IndexPage = function({ data }) {
   return (
     <Layout>
     <SEO title="Home" />
-    <button type="button" onClick={handleToggle}>Toggle Order</button>
+    <p style={{ fontStyle: 'italic', textAlign: 'center' }}>** This site is still being set-up and updated **</p>
+    <button type="button" onClick={handleToggle}>Toggle Order Of Events</button>
     <DateTimeline dates={dates}/>
   </Layout>
   );
