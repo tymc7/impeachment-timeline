@@ -29,6 +29,12 @@ p:last-child {
   margin-bottom: 0;
 }
 
+a {
+  color: #B71C1C;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 
 .card,
 .body-container {

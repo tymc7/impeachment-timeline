@@ -7,9 +7,10 @@ export default function AboutPage() {
     <Layout>
     <SEO title="About" />
     <section className="card">
-    <h1>Thanks for stopping by!</h1>
-      <p>With everything happening so quickly regarding the impeachment inquiry, I was having trouble compiling a good timeline of events that could be easily updated and shared. I built this quick site to help alliviate that and hope to keep it as updated as possible.</p>
-      <p>If you would like to contribute, please email me at <a href="mailto:info@impeachment.dev">info@impeachment.dev</a>, or <a href="https://github.com/tylerbmcsilva/impeachment-2019" target="_blank" rel="noopener noreferrer">open a pull request on Github</a>.</p>
+    <h1>Thanks for reading!</h1>
+      <p>The impeachment inquiry into Donald J. Trump seems to have happened fairly quickly, but by compiling into a linear timeline, you can see how the events have transpired over many months.</p>
+      <p>The goal of this timeline is to provide information in chronological order along with resources for people to learn more on their own.</p>
+      <p>If you would like to contribute, please contact me at <a href="mailto:info@impeachment.dev">info@impeachment.dev</a>.</p>
     </section>
   </Layout>
   );
