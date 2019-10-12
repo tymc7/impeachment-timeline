@@ -61,7 +61,7 @@ const IndexPage = function({ data }) {
 
 function DateTimeline({ dates }) {
   return (
-    <Timeline lineColor={'#ddd'}>
+    <Timeline lineColor={'#ddd'} animate={false}>
       {dates.map(({ node }) => {
         return (
           <TimelineItem
