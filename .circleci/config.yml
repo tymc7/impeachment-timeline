@@ -6,7 +6,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: cicleci/node:chakracore-10.13
+      - image: circleci/node:10.16.3
 
     working_directory: ~/impeachment-2019
 
