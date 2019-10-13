@@ -6,7 +6,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: broadlyeng/node-build-base
+      - image: cicleci/node:chakracore-10.13
 
     working_directory: ~/impeachment-2019
 
