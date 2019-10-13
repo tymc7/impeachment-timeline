@@ -28,4 +28,4 @@ jobs:
             - node_modules
 
       # run tests!
-      - run: yarn test
+      - run: NODE_ENV=test yarn test
