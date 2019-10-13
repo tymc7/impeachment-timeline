@@ -1,0 +1,31 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:10.16.3
+
+    working_directory: ~/impeachment-2019
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - impeachment-2019-{{ .Branch }}-{{ checksum "package.json" }}
+
+      - run: yarn install --frozen-lockfile
+
+      - save_cache:
+          key: impeachment-2019-{{ .Branch }}-{{ checksum "package.json" }}
+          paths:
+            - ~/.yarn
+            - ~/.cache
+            - .yarn
+            - node_modules
+
+      # run tests!
+      - run: NODE_ENV=test yarn test

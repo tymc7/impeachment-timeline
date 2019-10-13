@@ -24,6 +24,12 @@
     "vertical-timeline-component-for-react": "^1.0.6"
   },
   "devDependencies": {
+    "@babel/register": "^7.6.2",
+    "babel-preset-gatsby": "^0.2.18",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "jsdom": "^15.1.1",
+    "mocha": "^6.2.1",
     "prettier": "^1.18.2"
   },
   "keywords": [
@@ -36,6 +42,17 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "yarn develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
+    "test": "mocha"
+  },
+  "mocha": {
+    "growl": true,
+    "recursive": true,
+    "check-leaks": true,
+    "reporter": "spec",
+    "spec": "test/**/*_test.js",
+    "require": [
+      "@babel/register",
+      "test/helpers.js"
+    ]
   }
 }
