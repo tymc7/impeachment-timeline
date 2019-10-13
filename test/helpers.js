@@ -6,7 +6,7 @@ const jsdom     = require("jsdom");
 require('@babel/register')();
 
 
-process.env.NODE_ENV   = 'TEST';
+process.env.NODE_ENV = 'test';
 
 // Gatsby Specific globals
 global.__PATH_PREFIX__ = '';
