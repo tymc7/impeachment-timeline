@@ -1,7 +1,7 @@
 {
   "name": "impeachment-trump-timeline",
   "private": false,
-  "description": "Timeline of events that lead to Donald J Trump being investigated",
+  "description": "Timeline of events that lead to an impeachment inquiry of Donald J. Trump",
   "version": "0.1.0",
   "author": "Tyler McSilva <tylerbmcsilva@gmail.com>",
   "dependencies": {
