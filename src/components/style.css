@@ -39,14 +39,14 @@ a {
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
+.body-container *:last-child {
+  margin-bottom: 0;
+}
+
 .sources {
   display: block;
   font-size: 14px;
   margin-bottom: 1.45rem;
-}
-
-.sources:last-child {
-  margin-bottom: 0;
 }
 
 @media only screen and (max-width: 475px) {
