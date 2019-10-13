@@ -17,13 +17,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: "UA-106504504-2",
-        head: false,
-        anonymize: true,
-        respectDNT: true,
-        exclude: ["/preview/**"],
-        pageTransitionDelay: 0,
-        sampleRate: 5,
-        siteSpeedSampleRate: 10
+        head: false
       },
     },
     'gatsby-transformer-remark',
