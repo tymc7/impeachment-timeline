@@ -53,7 +53,7 @@ export default function SEO({ description, lang, meta, title }) {
         },
         {
           property: 'og:image',
-          content: '/icons/icon-512x512.png'
+          content: 'https://www.impeachment.dev/icons/icon-512x512.png'
         },
         {
           name: `twitter:card`,
