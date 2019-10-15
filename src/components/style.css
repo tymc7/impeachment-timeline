@@ -4,7 +4,7 @@ button {
   padding:0.5em 3em;
   background: transparent;
   border:0.16em solid #B71C1C;
-  margin:0 auto;
+  margin:0 auto 0.5em;
   box-sizing: border-box;
   text-decoration:none;
   text-transform:uppercase;
