@@ -3,6 +3,7 @@ module.exports = {
     title: 'Donald J. Trump Impeachment Timeline',
     description: 'Timeline of events that have lead to the impeachment inquiry of Donald J. Trump',
     author: '@tylerbmcsilva',
+    twitterHandle: '@tymcsilva'
   },
   plugins: [
     'gatsby-plugin-react-helmet',
