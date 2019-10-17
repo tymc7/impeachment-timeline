@@ -1,4 +1,13 @@
 
+.timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline.reverse {
+  flex-direction: column-reverse;
+}
+
 button {
   display:block;
   padding:0.5em 3em;

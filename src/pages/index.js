@@ -20,12 +20,9 @@ const render = new rehypeReact({
 export default function IndexPage({ data }) {
   const { allMarkdownRemark }           = data;
   const { edges }                       = allMarkdownRemark;
-  const [ dates, setDates ]             = useState(edges);
   const [ oldestFirst, setOldestFirst ] = useState(true);
 
   function handleToggle() {
-    const reversed = dates.reverse();
-    setDates([ ...reversed ]);
     setOldestFirst(!oldestFirst);
   }
 
@@ -37,8 +34,8 @@ export default function IndexPage({ data }) {
       </p>
       <button type="button" onClick={handleToggle}>Toggle order of events</button>
       <p style={{ textAlign: 'center', marginBottom: 0 }}>Viewing {oldestFirst ? 'oldest' : 'newest'} events first</p>
-      <Timeline lineColor={'#ddd'} animate={false}>
-        {dates.map(({ node }) => {
+      <Timeline className={oldestFirst ? null : 'reverse'} lineColor={'#ddd'} animate={false}>
+        {edges.map(({ node }) => {
           return (
             <TimelineItem
               key={node.id}
