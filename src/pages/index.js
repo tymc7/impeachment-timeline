@@ -20,10 +20,10 @@ const render = new rehypeReact({
 export default function IndexPage({ data }) {
   const { allMarkdownRemark }           = data;
   const { edges }                       = allMarkdownRemark;
-  const [ oldestFirst, setOldestFirst ] = useState(true);
+  const [ newestFirst, setNewestFirst ] = useState(true);
 
   function handleToggle() {
-    setOldestFirst(!oldestFirst);
+    setNewestFirst(!newestFirst);
   }
 
   return (
@@ -33,8 +33,8 @@ export default function IndexPage({ data }) {
         ** This site is continuously being updated **
       </p>
       <button type="button" onClick={handleToggle}>Toggle order of events</button>
-      <p style={{ textAlign: 'center', marginBottom: 0 }}>Viewing {oldestFirst ? 'oldest' : 'newest'} events first</p>
-      <Timeline className={oldestFirst ? null : 'reverse'} lineColor={'#ddd'} animate={false}>
+      <p style={{ textAlign: 'center', marginBottom: 0 }}>Viewing {newestFirst ? 'newest' : 'oldest'} events first</p>
+      <Timeline className={newestFirst ? null : 'reverse'} lineColor={'#ddd'} animate={false}>
         {edges.map(({ node }) => {
           return (
             <TimelineItem
@@ -55,7 +55,7 @@ export default function IndexPage({ data }) {
 
 export const query = graphql`
   query {
-    allMarkdownRemark(sort: {fields: frontmatter___date, order: ASC}) {
+    allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}) {
       edges {
         node {
           id
