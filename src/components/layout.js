@@ -45,7 +45,6 @@ const Layout = ({ children }) => {
           </div>
           <p style={{ marginBottom: '5px' }}>Want to help me keep this site running?</p>
           <BuyMeACoffee/>
-          <script data-name="BMC-Widget" src="https://cdn.buymeacoffee.com/widget/1.0.0/prod/widget.prod.min.js" data-id="tymcsilva" data-description="Support this site by buying me a coffee!" data-message="Thanks for reading!" data-color="#B71C1C" data-position="right" data-x_margin="18" data-y_margin="18"></script>
         </footer>
       </div>
     </React.Fragment>
