@@ -18,13 +18,26 @@ const render = new rehypeReact({
 
 
 export default function IndexPage({ data }) {
-  const { allMarkdownRemark }           = data;
-  const { edges }                       = allMarkdownRemark;
-  const [ newestFirst, setNewestFirst ] = useState(true);
+  const { allMarkdownRemark }               = data;
+  const { edges }                           = allMarkdownRemark;
+  const [ newestFirst, setNewestFirst ]     = useState(true);
+  const [ searchResults, setSearchResults ] = useState([]);
+  const [ searchTerm, setSearchTerm ]       = useState('');
+
+  function handleSearchTermChange(e) {
+    setSearchTerm(e.target.value);
+  }
 
   function handleToggle() {
     setNewestFirst(!newestFirst);
   }
+
+  React.useEffect(() => {
+    const results = edges.filter(({ node: { html, frontmatter } }) => (
+      html.toLowerCase().includes(searchTerm.toLowerCase()) || frontmatter.title.toLowerCase().includes(searchTerm.toLowerCase())
+    ));
+    setSearchResults(results);
+  }, [ searchTerm ]);
 
   return (
     <Layout>
@@ -34,20 +47,32 @@ export default function IndexPage({ data }) {
       </p>
       <button type="button" onClick={handleToggle}>Toggle order of events</button>
       <p style={{ textAlign: 'center', marginBottom: 0 }}>Viewing {newestFirst ? 'newest' : 'oldest'} events first</p>
-      <Timeline className={newestFirst ? null : 'reverse'} lineColor={'#ddd'} animate={false}>
-        {edges.map(({ node }) => {
-          return (
-            <TimelineItem
-              key={node.id}
-              id={node.frontmatter.date}
-              dateText={node.frontmatter.title}
-              dateInnerStyle={{ background: '#B71C1C', color: '#FFF' }}
-              style={{ color: '#B71C1C' }}>
-              {render(node.htmlAst)}
-            </TimelineItem>
-          );
-        })}
-      </Timeline>
+      <input
+        type="text"
+        placeholder="Search"
+        value={searchTerm}
+        onChange={handleSearchTermChange}
+        autoComplete={false}
+      />
+      {searchResults.length > 0 && (
+        <Timeline className={newestFirst ? null : 'reverse'} lineColor={'#ddd'} animate={false}>
+          {searchResults.map(({ node }) => {
+            return (
+              <TimelineItem
+                key={node.id}
+                id={node.frontmatter.date}
+                dateText={node.frontmatter.title}
+                dateInnerStyle={{ background: '#B71C1C', color: '#FFF' }}
+                style={{ color: '#B71C1C' }}>
+                {render(node.htmlAst)}
+              </TimelineItem>
+            );
+          })}
+        </Timeline>
+      )}
+      {searchResults.length === 0 && (
+        <p style={{ textAlign: 'center' }}>No Results</p>
+      )}
     </Layout>
   );
 }
@@ -65,6 +90,7 @@ export const query = graphql`
             title
             subtitle
           }
+          html
           htmlAst
         }
       }
