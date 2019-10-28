@@ -1,3 +1,12 @@
+.ui.red.button {
+  background-color: #B71C1C;
+}
+
+.ui.red.button.basic {
+  box-shadow: 0 0 0 1px #B71C1C inset!important;
+  color: #B71C1C!important;
+}
+
 
 .timeline {
   display: flex;
@@ -8,7 +17,7 @@
   flex-direction: column-reverse;
 }
 
-button {
+/* button {
   display:block;
   padding:0.5em 3em;
   background: transparent;
@@ -27,7 +36,7 @@ button {
 
 button:hover {
   border-color:rgb(156, 39, 39);
-}
+} */
 
 footer {
   text-align: center;

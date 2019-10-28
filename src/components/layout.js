@@ -11,7 +11,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import BuyMeACoffee from './buy_me_a_coffee';
 import Header from "./header"
-import "./layout.css";
+import 'semantic-ui-css/semantic.min.css'
 import "./style.css";
 
 const Layout = ({ children }) => {

@@ -21,6 +21,8 @@
     "react-helmet": "^5.2.1",
     "react-twitter-embed": "^2.0.8",
     "rehype-react": "^4.0.1",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.88.1",
     "vertical-timeline-component-for-react": "^1.0.6"
   },
   "devDependencies": {
