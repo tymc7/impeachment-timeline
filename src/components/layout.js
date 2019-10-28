@@ -12,7 +12,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import BuyMeACoffee from './buy_me_a_coffee';
 import Header from "./header"
 import 'semantic-ui-css/semantic.min.css'
-import "./style.css";
+import "../styles/style.css";
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
