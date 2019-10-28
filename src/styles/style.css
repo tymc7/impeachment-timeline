@@ -1,3 +1,12 @@
+.ui.red.button {
+  background-color: #B71C1C;
+}
+
+.ui.red.button.basic {
+  box-shadow: 0 0 0 1px #B71C1C inset!important;
+  color: #B71C1C!important;
+}
+
 
 .timeline {
   display: flex;
@@ -6,27 +15,6 @@
 
 .timeline.reverse {
   flex-direction: column-reverse;
-}
-
-button {
-  display:block;
-  padding:0.5em 3em;
-  background: transparent;
-  border:0.16em solid #B71C1C;
-  margin:0 auto 0.5em;
-  box-sizing: border-box;
-  text-decoration:none;
-  text-transform:uppercase;
-  font-family:sans-serif;
-  font-weight:400;
-  color:#B71C1C;
-  text-align:center;
-  transition: all 0.15s;
-  cursor: pointer;
-}
-
-button:hover {
-  border-color:rgb(156, 39, 39);
 }
 
 footer {
