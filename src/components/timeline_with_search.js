@@ -38,8 +38,9 @@ export default function TimelineWithSearch({ data }) {
   return (
     <Container>
       <Form>
-        <Grid>
-          <Grid.Column computer={12} tablet={12} mobile={8}>
+        <Grid doubling>
+          <Grid.Column computer={2} only='computer'/>
+          <Grid.Column computer={9} tablet={13} mobile={8}>
             <Form.Field>
               <label>Search</label>
               <Input
@@ -51,7 +52,7 @@ export default function TimelineWithSearch({ data }) {
               />
             </Form.Field>
           </Grid.Column>
-          <Grid.Column computer={4} tablet={4} mobile={8}>
+          <Grid.Column computer={2} tablet={3} mobile={8}>
             <Form.Field>
               <label style={{ textAlign: 'left' }}>Sort</label>
               <Button.Group size="mini">
@@ -60,6 +61,7 @@ export default function TimelineWithSearch({ data }) {
               </Button.Group>
             </Form.Field>
           </Grid.Column>
+          <Grid.Column computer={3} only='computer'/>
         </Grid>
       </Form>
       {searchResults.length > 0 && (
