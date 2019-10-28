@@ -12,7 +12,7 @@ export default function IndexPage({ data }) {
   return (
     <Layout>
       <SEO title="Home" />
-      <TimelineWithSearch data={edges}/>)
+      <TimelineWithSearch data={edges}/>
     </Layout>
   );
 }

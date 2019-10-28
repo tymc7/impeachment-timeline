@@ -4,6 +4,7 @@ import Tweet            from '../components/tweet';
 import { Button }       from 'semantic-ui-react';
 import { Container }    from 'semantic-ui-react';
 import { Grid }         from 'semantic-ui-react';
+import { Header }       from 'semantic-ui-react';
 import { Input }        from 'semantic-ui-react';
 import { Form }         from 'semantic-ui-react';
 import { Timeline }     from 'vertical-timeline-component-for-react';
@@ -80,9 +81,11 @@ export default function TimelineWithSearch({ data }) {
           })}
         </Timeline>
       )}
-        {searchResults.length === 0 && (
-          <p style={{ textAlign: 'center' }}>No Results</p>
-        )}
+      {searchResults.length === 0 && (
+        <Container text textAlign="center" style={{ marginTop: '1em' }}>
+          <Header>No Results</Header>
+        </Container>
+      )}
     </Container>
   );
 }
