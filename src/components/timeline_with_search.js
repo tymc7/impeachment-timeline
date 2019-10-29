@@ -5,6 +5,7 @@ import { Button }       from 'semantic-ui-react';
 import { Container }    from 'semantic-ui-react';
 import { Grid }         from 'semantic-ui-react';
 import { Header }       from 'semantic-ui-react';
+import { Icon }         from 'semantic-ui-react';
 import { Input }        from 'semantic-ui-react';
 import { Form }         from 'semantic-ui-react';
 import { Timeline }     from 'vertical-timeline-component-for-react';
@@ -44,13 +45,10 @@ export default function TimelineWithSearch({ data }) {
           <Grid.Column computer={9} tablet={13} mobile={8}>
             <Form.Field>
               <label>Search</label>
-              <Input
-                size="mini"
-                icon="search"
-                value={searchTerm}
-                onChange={handleSearchTermChange}
-                autoComplete={false}
-              />
+              <Input size="mini" icon value={searchTerm} onChange={handleSearchTermChange} autoComplete={false}>
+                <Icon link name={ searchTerm ? 'times' : 'search'} onClick={() => (searchTerm ? setSearchTerm('') : null)}/>
+                <input />
+              </Input>
             </Form.Field>
           </Grid.Column>
           <Grid.Column computer={2} tablet={3} mobile={8}>
