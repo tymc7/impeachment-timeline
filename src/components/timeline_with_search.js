@@ -8,6 +8,7 @@ import { Header }       from 'semantic-ui-react';
 import { Icon }         from 'semantic-ui-react';
 import { Input }        from 'semantic-ui-react';
 import { Form }         from 'semantic-ui-react';
+import { Loader }       from 'semantic-ui-react';
 import { Timeline }     from 'vertical-timeline-component-for-react';
 import { TimelineItem } from 'vertical-timeline-component-for-react';
 import { useState }     from 'react';
@@ -25,6 +26,7 @@ export default function TimelineWithSearch({ data }) {
   const [ newestFirst, setNewestFirst ]     = useState(true);
   const [ searchResults, setSearchResults ] = useState([]);
   const [ searchTerm, setSearchTerm ]       = useState('');
+  const [ isLoading, setIsLoading ]         = useState(true);
 
   function handleSearchTermChange(e) {
     setSearchTerm(e.target.value);
@@ -35,6 +37,7 @@ export default function TimelineWithSearch({ data }) {
       html.toLowerCase().includes(searchTerm.toLowerCase()) || frontmatter.title.toLowerCase().includes(searchTerm.toLowerCase())
     ));
     setSearchResults(results);
+    setIsLoading(false)
   }, [ data, searchTerm ]);
 
   return (
@@ -63,7 +66,10 @@ export default function TimelineWithSearch({ data }) {
           <Grid.Column computer={3} only='computer'/>
         </Grid>
       </Form>
-      {searchResults.length > 0 && (
+      {isLoading && (
+        <Loader active inline='centered' style={{ marginTop: '2rem' }}/>
+      )}
+      {!isLoading && searchResults.length > 0 && (
         <Timeline className={newestFirst ? null : 'reverse'} lineColor={'#ddd'} animate={false}>
           {searchResults.map(({ node }) => {
             return (
@@ -79,7 +85,7 @@ export default function TimelineWithSearch({ data }) {
           })}
         </Timeline>
       )}
-      {searchResults.length === 0 && (
+      {!isLoading && searchResults.length === 0 && (
         <Container text textAlign="center" style={{ marginTop: '1em' }}>
           <Header>No Results</Header>
         </Container>
