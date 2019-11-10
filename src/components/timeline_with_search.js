@@ -32,6 +32,15 @@ export default function TimelineWithSearch({ data }) {
     setSearchTerm(e.target.value);
   }
 
+  function handleSortChange(newestFirst) {
+    setNewestFirst(newestFirst);
+  }
+
+  function handleClearSearchTerm() {
+    if (searchTerm)
+      setSearchTerm('');
+  }
+
   React.useEffect(() => {
     const results = data.filter(({ node: { html, frontmatter } }) => (
       html.toLowerCase().includes(searchTerm.toLowerCase()) || frontmatter.title.toLowerCase().includes(searchTerm.toLowerCase())
@@ -42,30 +51,13 @@ export default function TimelineWithSearch({ data }) {
 
   return (
     <Container>
-      <Form>
-        <Grid doubling>
-          <Grid.Column computer={2} only='computer'/>
-          <Grid.Column computer={9} tablet={13} mobile={8}>
-            <Form.Field>
-              <label>Search</label>
-              <Input size="mini" icon value={searchTerm} onChange={handleSearchTermChange} autoComplete={false}>
-                <Icon link name={ searchTerm ? 'times' : 'search'} onClick={() => (searchTerm ? setSearchTerm('') : null)}/>
-                <input />
-              </Input>
-            </Form.Field>
-          </Grid.Column>
-          <Grid.Column computer={2} tablet={3} mobile={8}>
-            <Form.Field>
-              <label style={{ textAlign: 'left' }}>Sort</label>
-              <Button.Group size="mini">
-                <Button size="mini" color="red" basic={!newestFirst}  onClick={() => setNewestFirst(true)}>Newest</Button>
-                <Button size="mini" color="red" basic={newestFirst} onClick={() => setNewestFirst(false)}>Oldest</Button>
-              </Button.Group>
-            </Form.Field>
-          </Grid.Column>
-          <Grid.Column computer={3} only='computer'/>
-        </Grid>
-      </Form>
+      <SearchBar {...{
+        searchTerm,
+        newestFirst,
+        handleSearchTermChange,
+        handleClearSearchTerm,
+        handleSortChange
+      }}/>
       {isLoading && (
         <Loader active inline='centered' style={{ marginTop: '2rem' }}/>
       )}
@@ -91,5 +83,35 @@ export default function TimelineWithSearch({ data }) {
         </Container>
       )}
     </Container>
+  );
+}
+
+
+function SearchBar({ searchTerm, newestFirst, handleSearchTermChange, handleClearSearchTerm, handleSortChange }) {
+  return (
+    <Form>
+      <Grid doubling>
+        <Grid.Column computer={2} only='computer'/>
+        <Grid.Column computer={9} tablet={13} mobile={8}>
+          <Form.Field>
+            <label>Search</label>
+            <Input size="mini" icon value={searchTerm} onChange={handleSearchTermChange} autoComplete={false}>
+              <Icon link={ searchTerm ? true : false } name={ searchTerm ? 'times' : 'search'} onClick={handleClearSearchTerm}/>
+              <input />
+            </Input>
+          </Form.Field>
+        </Grid.Column>
+        <Grid.Column computer={2} tablet={3} mobile={8}>
+          <Form.Field>
+            <label style={{ textAlign: 'left' }}>Sort</label>
+            <Button.Group size="mini">
+              <Button size="mini" color="red" basic={!newestFirst}  onClick={() => handleSortChange(true)}>Newest</Button>
+              <Button size="mini" color="red" basic={newestFirst} onClick={() => handleSortChange(false)}>Oldest</Button>
+            </Button.Group>
+          </Form.Field>
+        </Grid.Column>
+        <Grid.Column computer={3} only='computer'/>
+      </Grid>
+    </Form>
   );
 }

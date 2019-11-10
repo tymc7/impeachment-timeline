@@ -5,16 +5,17 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import React                       from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 
 import BuyMeACoffee from './buy_me_a_coffee';
-import Header from "./header"
-import 'semantic-ui-css/semantic.min.css'
-import "../styles/style.css";
+import Header       from './header';
 
-const Layout = ({ children }) => {
+import 'semantic-ui-css/semantic.min.css';
+import '../styles/style.css';
+
+
+export default function Layout({ children }) {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -23,7 +24,7 @@ const Layout = ({ children }) => {
         }
       }
     }
-  `)
+  `);
 
   return (
     <React.Fragment>
@@ -39,20 +40,12 @@ const Layout = ({ children }) => {
         <main>{children}</main>
         <footer>
           <div style={{ marginBottom: '10px' }}>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org" target="_blank" rel="noopener noreferrer">Gatsby</a>
+            © {new Date().getFullYear()}, Built with <a href="https://www.gatsbyjs.org" target="_blank" rel="noopener noreferrer">Gatsby</a>
           </div>
-          <p style={{ marginBottom: '5px' }}>Want to help me keep this site running?</p>
+          <p style={{ marginBottom: '1rem' }}>Want to help me keep this site running?</p>
           <BuyMeACoffee/>
         </footer>
       </div>
     </React.Fragment>
-  )
+  );
 }
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
-
-export default Layout

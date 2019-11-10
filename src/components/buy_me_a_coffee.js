@@ -10,5 +10,5 @@ export default function BuyMeACoffee() {
         <span style={{ marginLeft: '5px' }}>Buy me a coffee</span>
       </a>
     </React.Fragment>
-  )
+  );
 }
