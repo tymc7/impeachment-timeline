@@ -1,3 +1,8 @@
+main {
+  min-height: 90vh;
+}
+
+
 .ui.red.button {
   background-color: #B71C1C;
 }
@@ -8,9 +13,10 @@
 }
 
 
-.timeline {
+.container .timeline {
   display: flex;
   flex-direction: column;
+  margin-bottom: 0;
 }
 
 .timeline.reverse {
