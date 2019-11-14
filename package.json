@@ -5,34 +5,35 @@
   "version": "0.1.0",
   "author": "Tyler McSilva <tylerbmcsilva@gmail.com>",
   "dependencies": {
-    "gatsby": "^2.15.35",
-    "gatsby-image": "^2.2.27",
-    "gatsby-plugin-google-analytics": "^2.1.21",
-    "gatsby-plugin-manifest": "^2.2.21",
-    "gatsby-plugin-offline": "^3.0.14",
-    "gatsby-plugin-react-helmet": "^3.1.11",
-    "gatsby-plugin-sharp": "^2.2.29",
-    "gatsby-source-filesystem": "^2.1.31",
-    "gatsby-transformer-remark": "^2.6.28",
-    "gatsby-transformer-sharp": "^2.2.21",
+    "gatsby": "^2.17.13",
+    "gatsby-image": "^2.2.32",
+    "gatsby-plugin-google-analytics": "^2.1.26",
+    "gatsby-plugin-manifest": "^2.2.27",
+    "gatsby-plugin-offline": "^3.0.20",
+    "gatsby-plugin-react-helmet": "^3.1.14",
+    "gatsby-plugin-sharp": "^2.2.38",
+    "gatsby-source-filesystem": "^2.1.36",
+    "gatsby-transformer-remark": "^2.6.34",
+    "gatsby-transformer-sharp": "^2.3.4",
     "prop-types": "^15.7.2",
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
     "react-helmet": "^5.2.1",
-    "react-twitter-embed": "^2.0.8",
+    "react-twitter-embed": "^3.0.3",
     "rehype-react": "^4.0.1",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.88.1",
     "vertical-timeline-component-for-react": "^1.0.6"
   },
   "devDependencies": {
-    "@babel/register": "^7.6.2",
-    "babel-preset-gatsby": "^0.2.18",
+    "@babel/register": "^7.7.0",
+    "babel-preset-gatsby": "^0.2.21",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
-    "jsdom": "^15.1.1",
-    "mocha": "^6.2.1",
-    "prettier": "^1.18.2"
+    "jsdom": "^15.2.1",
+    "mocha": "^6.2.2",
+    "npm-check-updates": "^3.2.1",
+    "prettier": "^1.19.1"
   },
   "keywords": [
     "gatsby"
@@ -44,7 +45,8 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "yarn develop",
     "serve": "gatsby serve",
-    "test": "mocha"
+    "test": "mocha",
+    "upgrade-dependencies": "ncu -u && yarn install"
   },
   "mocha": {
     "growl": true,
