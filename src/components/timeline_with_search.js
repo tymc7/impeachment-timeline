@@ -1,6 +1,7 @@
 import React            from 'react';
 import rehypeReact      from 'rehype-react';
 import Tweet            from '../components/tweet';
+import YoutubeEmbed     from '../components/youtube_embed';
 import { Button }       from 'semantic-ui-react';
 import { Container }    from 'semantic-ui-react';
 import { Grid }         from 'semantic-ui-react';
@@ -17,7 +18,8 @@ import { useState }     from 'react';
 const render = new rehypeReact({
   createElement: React.createElement,
   components: {
-    'tweet': Tweet
+    tweet:   Tweet,
+    youtube: YoutubeEmbed
   }
 }).Compiler;
 
