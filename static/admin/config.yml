@@ -8,7 +8,7 @@ collections:
     label: "Timeline Items"
     folder: "static/timeline_items"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}" # Filename template
+    slug: "{{date}}" # Filename template
     fields: # The fields for each document, usually in front matter
       - {label: "Path", name: "path", widget: "string", default: "/" }
       - {label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
