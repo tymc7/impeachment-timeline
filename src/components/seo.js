@@ -65,8 +65,9 @@ export default function SEO({ description, lang, meta, title }) {
           name: `twitter:description`,
           content: metaDescription,
         },
-      ].concat(meta)}
-    />
+      ].concat(meta)}>
+      <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    </Helmet>
   )
 }
 
