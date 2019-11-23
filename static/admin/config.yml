@@ -14,3 +14,4 @@ collections:
       - {label: "Date", name: "date", widget: "datetime"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Subtitle", name: "subtitle", widget: "string"}
+      - {label: "Body", name: "body", widgth: "markdown"}
