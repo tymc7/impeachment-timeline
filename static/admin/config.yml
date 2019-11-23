@@ -13,5 +13,5 @@ collections:
       - {label: "Path", name: "path", widget: "string", default: "/" }
       - {label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Subtitle", name: "subtitle", widget: "string", required: "false"}
+      - {label: "Subtitle", name: "subtitle", widget: "string", required: false}
       - {label: "Body", name: "body", widget: "markdown" }
