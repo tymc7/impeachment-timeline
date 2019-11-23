@@ -11,7 +11,7 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'data',
-        path: `${__dirname}/src/data`,
+        path: `${__dirname}/static`,
       },
     },
     {
@@ -33,7 +33,7 @@ module.exports = {
         background_color: '#B71C1C',
         theme_color: '#B71C1C',
         display: 'minimal-ui',
-        icon: 'src/images/icon.png', // This path is relative to the root of the site.
+        icon: 'images/icon.png', // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
