@@ -1,4 +1,5 @@
 import React            from 'react';
+import Link             from './link';
 import rehypeReact      from 'rehype-react';
 import Tweet            from '../components/tweet';
 import YoutubeEmbed     from '../components/youtube_embed';
@@ -18,6 +19,7 @@ import { useState }     from 'react';
 const render = new rehypeReact({
   createElement: React.createElement,
   components: {
+    a:       Link,
     tweet:   Tweet,
     youtube: YoutubeEmbed
   }
@@ -97,7 +99,7 @@ function SearchBar({ searchTerm, newestFirst, handleSearchTermChange, handleClea
         <Grid.Column computer={9} tablet={13} mobile={8}>
           <Form.Field>
             <label>Search</label>
-            <Input size="mini" icon value={searchTerm} onChange={handleSearchTermChange} autoComplete={false}>
+            <Input size="mini" icon value={searchTerm} onChange={handleSearchTermChange} autoComplete="false">
               <Icon link={ searchTerm ? true : false } name={ searchTerm ? 'times' : 'search'} onClick={handleClearSearchTerm}/>
               <input />
             </Input>
