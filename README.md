@@ -7,15 +7,15 @@
 
 The impeachment inquiry into Donald J. Trump seems to have happened fairly quickly, but by compiling into a linear timeline, you can see how the events have transpired over many months.
 
-Each date is its own markdown file located in `src/data`.
+Each date is its own markdown file located in `static/timeline_items`.
 
 ## 🚀 Quick start
 
 1. Clone the repo to your local environment
 2. Install the dependencies using `yarn`
 3. Start the development server with `gatsby develop`
-3. Branch off master and start making some changes! (PRs welcomed)
-4. Deploys automatically happen thanks to [Netlify](https://netlify.com).
+4. Branch off master and start making some changes! (PRs welcomed)
+5. Deploys automatically happen thanks to [Netlify](https://netlify.com) and [NetlifyCMS](https://netlifycms.org).
 
 
 ## 🛠 Built With
