@@ -11,7 +11,7 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}" # Filename template
     fields: # The fields for each document, usually in front matter
       - {label: "Path", name: "path", widget: "string", default: "/" }
-      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Subtitle", name: "subtitle", widget: "string"}
-      - {label: "Body", name: "body", widgth: "markdown"}
+      - {label: "Body", name: "body", widget: "markdown" }
