@@ -2,7 +2,6 @@ main {
   min-height: 90vh;
 }
 
-
 .ui.red.button {
   background-color: #B71C1C;
 }
@@ -12,7 +11,6 @@ main {
   color: #B71C1C!important;
 }
 
-
 .container .timeline {
   display: flex;
   flex-direction: column;
@@ -21,6 +19,18 @@ main {
 
 .timeline.reverse {
   flex-direction: column-reverse;
+}
+
+.timeline-item {
+  padding: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.timeline-item *:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 footer {
@@ -43,9 +53,9 @@ blockquote {
 }
 
 hr {
-  height: 2px;
+  height: 1px;
   border: 0 !important;
-  background-image: linear-gradient(90deg, rgba(255,255,255,1), #B71C1C, rgba(255,255,255,1)) !important;
+  background-color: #B71C1C !important;
   margin-bottom: 1.45em;
 }
 
@@ -53,6 +63,9 @@ hr {
   margin-bottom: 1.45em !important;
 }
 
+.twitter-tweet:last-child {
+  margin-bottom: 0 !important;
+}
 
 .card,
 .body-container {

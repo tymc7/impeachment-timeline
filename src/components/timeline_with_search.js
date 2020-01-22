@@ -54,7 +54,7 @@ export default function TimelineWithSearch({ data }) {
   }, [ data, searchTerm ]);
 
   return (
-    <Container>
+    <Container className="timeline-page" fluid>
       <SearchBar {...{
         searchTerm,
         newestFirst,
@@ -66,20 +66,18 @@ export default function TimelineWithSearch({ data }) {
         <Loader active inline='centered' style={{ marginTop: '2rem' }}/>
       )}
       {!isLoading && searchResults.length > 0 && (
-        <Timeline className={newestFirst ? null : 'reverse'} lineColor={'#ddd'} animate={false}>
+        <Container className={`timeline ${newestFirst ? null : 'reverse'}`}>
           {searchResults.map(({ node }) => {
             return (
-              <TimelineItem
-                key={node.id}
-                id={node.frontmatter.date}
-                dateText={node.frontmatter.title}
-                dateInnerStyle={{ background: '#B71C1C', color: '#FFF' }}
-                style={{ color: '#B71C1C' }}>
+              <Container className="timeline-item" text key={node.id} id={node.frontmatter.date}>
+                <Header as="h2">
+                  {node.frontmatter.title}
+                </Header>
                 {render(node.htmlAst)}
-              </TimelineItem>
+              </Container>
             );
           })}
-        </Timeline>
+        </Container>
       )}
       {!isLoading && searchResults.length === 0 && (
         <Container text textAlign="center" style={{ marginTop: '1em' }}>
