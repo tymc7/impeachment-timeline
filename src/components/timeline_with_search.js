@@ -1,19 +1,17 @@
-import React            from 'react';
-import Link             from './link';
-import rehypeReact      from 'rehype-react';
-import Tweet            from '../components/tweet';
-import YoutubeEmbed     from '../components/youtube_embed';
-import { Button }       from 'semantic-ui-react';
-import { Container }    from 'semantic-ui-react';
-import { Grid }         from 'semantic-ui-react';
-import { Header }       from 'semantic-ui-react';
-import { Icon }         from 'semantic-ui-react';
-import { Input }        from 'semantic-ui-react';
-import { Form }         from 'semantic-ui-react';
-import { Loader }       from 'semantic-ui-react';
-import { Timeline }     from 'vertical-timeline-component-for-react';
-import { TimelineItem } from 'vertical-timeline-component-for-react';
-import { useState }     from 'react';
+import React         from 'react';
+import Link          from './link';
+import rehypeReact   from 'rehype-react';
+import Tweet         from '../components/tweet';
+import YoutubeEmbed  from '../components/youtube_embed';
+import { Button }    from 'semantic-ui-react';
+import { Container } from 'semantic-ui-react';
+import { Grid }      from 'semantic-ui-react';
+import { Header }    from 'semantic-ui-react';
+import { Icon }      from 'semantic-ui-react';
+import { Input }     from 'semantic-ui-react';
+import { Form }      from 'semantic-ui-react';
+import { Loader }    from 'semantic-ui-react';
+import { useState }  from 'react';
 
 
 const render = new rehypeReact({
